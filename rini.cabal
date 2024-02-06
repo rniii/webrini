@@ -1,0 +1,42 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           rini
+version:        0.1.0
+author:         rini <rini@rinici.de>
+maintainer:     rini <rini@rinici.de>
+copyright:      Copyright (c) 2024 rini
+license:        Apache-2.0
+license-file:   LICENSE
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://codeberg.org/rini/webrini.git
+
+executable rini
+  main-is: Main.hs
+  other-modules:
+      Paths_rini
+  hs-source-dirs:
+      server
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , containers
+    , http-types
+    , lens
+    , random
+    , scotty
+    , text
+    , wai
+    , wai-extra
+    , wai-middleware-static
+    , wai-websockets
+    , warp
+    , websockets
+  default-language: Haskell2010

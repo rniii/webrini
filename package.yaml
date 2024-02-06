@@ -1,0 +1,42 @@
+name:         rini
+version:      0.1.0
+git:          https://codeberg.org/rini/webrini.git
+license:      Apache-2.0
+author:       rini <rini@rinici.de>
+copyright:    Copyright (c) 2024 rini
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- containers
+- http-types
+- lens
+- random
+- scotty
+- text
+- wai
+- wai-extra
+- wai-middleware-static
+- wai-websockets
+- warp
+- websockets
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+executables:
+  rini:
+    main:         Main.hs
+    source-dirs:  server
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N

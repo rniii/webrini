@@ -1,0 +1,6 @@
+/target
+/dist
+/pages
+/static/dist
+/elm-stuff
+/.stack-work
