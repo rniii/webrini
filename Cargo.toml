@@ -9,3 +9,7 @@ license = "Apache-2.0"
 
 [dependencies]
 maud = "0.26.0"
+
+[[bin]]
+name = "pages"
+path = "pages/main.rs"
