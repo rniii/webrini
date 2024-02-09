@@ -1,3 +1,46 @@
-:root {
+body {
+    color: #d5d5d5;
     font-family: iosevka, monospace;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAMAQMAAAB7mV5tAAAAAXNSR0IArs4c6QAAAAZQTFRFwq/Iq5uwNDCaAgAAABlJREFUeNpj4AFCGyA8AIRngNAACD8wfAAANYgF6XaUF4oAAAAASUVORK5CYII=");
+    margin: 0;
+}
+
+main,
+section {
+    background: #181515;
+    padding: 20px 1ch;
+    margin: 60px auto;
+    width: 65%;
+    box-shadow: 1ch 20px #484848;
+}
+
+h1,
+h2 {
+    margin: 0 0 20px;
+    font-size: 1em;
+}
+
+#chat {
+    background: #202020;
+    height: 90px;
+    overflow: scroll;
+    padding: 10px 1ch 0;
+}
+
+#chat time {
+    color: #a0a0a0;
+    margin-right: 1ch;
+}
+
+#chat_input {
+    all: unset;
+    background: #252525;
+    padding: 10px 8ch 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#chat_input::placeholder {
+    color: #a0a0a0;
+    opacity: unset;
 }

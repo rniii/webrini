@@ -37,7 +37,7 @@ import Network.WebSockets (Connection, acceptRequest, defaultConnectionOptions, 
 import System.Environment.Blank (getEnvDefault)
 import System.Random.Stateful (globalStdGen, uniformRM)
 import Text.Read (readMaybe)
-import Web.Scotty (file, get, html, middleware, nested, notFound, scottyOpts, setHeader)
+import Web.Scotty (file, get, middleware, nested, notFound, scottyOpts, setHeader)
 import qualified Web.Scotty as Scotty
 
 data Client = Client
@@ -87,7 +87,7 @@ main = do
         get "/chat" $
             nested chat'
         notFound $
-            html "-w-"
+            page "pages/404.html"
   where
     opts port =
         Scotty.defaultOptions

@@ -50,8 +50,7 @@ renderMsg msg =
     case msg of
         Chat.Text author content ->
             fragment
-                [ span [] [ text author ]
-                , span [] [ text ": " ]
+                [ span [ class "author", style "color:#ebc" ] [ text author, text ": " ]
                 , span [] [ text content ]
                 , br []
                 ]
@@ -67,19 +66,33 @@ type Html
     = Html String
 
 
+type alias Attr =
+    String
+
+
 text : String -> Html
 text =
     escapeHtml >> Html
 
 
-span : List ( String, String ) -> List Html -> Html
+span : List Attr -> List Html -> Html
 span =
     el "span"
 
 
-br : List ( String, String ) -> Html
+br : List Attr -> Html
 br =
     el_ "br"
+
+
+class : String -> Attr
+class =
+    attr "class"
+
+
+style : String -> Attr
+style =
+    attr "style"
 
 
 escapeHtml : String -> String
@@ -105,19 +118,24 @@ fragment =
     Html << String.concat << List.map render
 
 
-el : String -> List ( String, String ) -> List Html -> Html
+el : String -> List Attr -> List Html -> Html
 el tag attrs children =
     "<" ++ tag ++ attrs_ attrs ++ ">" ++ String.concat (List.map render children) ++ "</" ++ tag ++ ">" |> Html
 
 
-el_ : String -> List ( String, String ) -> Html
+el_ : String -> List Attr -> Html
 el_ tag attrs =
     "<" ++ tag ++ attrs_ attrs ++ ">" |> Html
 
 
-attrs_ : List ( String, String ) -> String
+attr : String -> String -> Attr
+attr k v =
+    escapeHtml k ++ "=" ++ escape "\"\\" v
+
+
+attrs_ : List Attr -> String
 attrs_ =
-    String.concat << List.map (\( k, v ) -> " " ++ escapeHtml k ++ "=" ++ escape "\"\\" v)
+    String.concat << List.map ((++) " ")
 
 
 render : Html -> String

@@ -7,7 +7,33 @@ use std::path::Path;
 use std::process::Command;
 use std::{fs, io};
 
-fn index() -> maud::Markup {
+use maud::Markup;
+
+fn index() -> Markup {
+    page(maud::html! {
+        main {
+            h1 { "~rini" }
+
+            p { "awa" }
+        }
+
+        section {
+            h2 { "cat" }
+
+            #chat {}
+
+            input placeholder="Type.." aria-label="Send a message" #chat_input;
+        }
+
+        script src="index.js" {}
+    })
+}
+
+fn not_found() -> Markup {
+    page(maud::html! {})
+}
+
+fn page(body: Markup) -> Markup {
     maud::html! {
         (maud::DOCTYPE)
 
@@ -17,27 +43,19 @@ fn index() -> maud::Markup {
                 meta name="viewport" content="width=device-width";
                 meta name="description" content=">w<";
                 meta name="theme-color" content="#d895ee";
+                link rel="stylesheet" href="index.css";
 
                 title { "~rini/" }
             }
 
-            body {
-                div id="chat" {}
-                input id="chat_input";
-
-                script src="index.js" {}
-            }
+            body { (body) }
         }
     }
 }
 
-fn not_found() -> maud::Markup {
-    maud::html! {}
-}
-
 macro_rules! pages {
     ($($name:literal $page:ident)*) => {
-        [$(($name, $page as fn() -> maud::Markup)),*]
+        [$(($name, $page as fn() -> Markup)),*]
     };
 }
 

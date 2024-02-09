@@ -4,13 +4,13 @@ import Json.Decode exposing (..)
 import Json.Encode as E
 
 
-port send : Value -> Cmd msg
-
-
 port recv : (Value -> msg) -> Sub msg
 
 
 port input : (String -> msg) -> Sub msg
+
+
+port send : Value -> Cmd msg
 
 
 port push : String -> Cmd msg
