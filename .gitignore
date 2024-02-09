@@ -1,8 +1,7 @@
 /target
-/elm-stuff
+/_build
 /.stack-work
 
-/dist
 /static
 *.html
 *.gz
