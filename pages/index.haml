@@ -1,0 +1,36 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(name="viewport" content="width=device-width")
+    %meta(name="description" content="hiya!")
+    %meta(name="theme-color" content="#d895ee")
+    %link(rel="stylesheet" href="index.css")
+    %title ~rini/
+
+  %body
+    %main
+      %h1 ~rini
+      :markdown
+        nyaaaaaaaaa
+
+      %ul
+        - [ ["https://codeberg.org/rini",     "codeberg.org/rini"],
+            ["https://ko-fi.com/rniii",       "ko-fi.com/rniii"],
+            ["https://wetdry.world/%40rini",  "@rini&#64;wetdry.world"],
+            ["mailto:rini%40rinici.de",       "rini&#64;rinici.de"],
+          ].each do |(url, text)|
+          %li
+            %a(href=url rel="me" target="_blank")!= text
+
+    %section
+      %h2 cat
+
+      #chat
+      %form#chat_form
+        %input#chat_input(placeholder="Type…" aria-label="Send a message")
+
+    %footer
+      Copyright (c) 2024 rini
+
+    %script(src="index.js")

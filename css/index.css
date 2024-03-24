@@ -11,13 +11,43 @@ section {
     padding: 20px 1ch;
     margin: 60px auto;
     width: 65%;
-    box-shadow: 1ch 20px #484848;
+    box-shadow: 1ch 20px #4a4747;
 }
 
 h1,
 h2 {
     margin: 0 0 20px;
     font-size: 1em;
+}
+
+h1::before,
+h2::before {
+    content: "# ";
+    color: #d895ee;
+    font-style: italic;
+}
+
+h2::before {
+    color: #909090;
+}
+
+a {
+    color: #d895ee;
+}
+
+p,
+ul {
+    padding: 0 2ch;
+    margin: 20px 0;
+}
+
+ul {
+    padding: 0 6ch;
+}
+
+ul li::marker {
+    content: "* ";
+    color: #909090;
 }
 
 #chat {
@@ -30,12 +60,13 @@ h2 {
 #chat time {
     color: #a0a0a0;
     margin-right: 1ch;
+    padding-left: 1ch;
 }
 
 #chat_input {
     all: unset;
     background: #252525;
-    padding: 10px 8ch 10px;
+    padding: 10px 8ch;
     width: 100%;
     box-sizing: border-box;
 }
@@ -43,4 +74,12 @@ h2 {
 #chat_input::placeholder {
     color: #a0a0a0;
     opacity: unset;
+}
+
+footer {
+    color: #242020;
+    font-size: 0.9em;
+    font-weight: 600;
+    font-style: italic;
+    text-align: center;
 }

@@ -20,6 +20,7 @@ source-repository head
 executable rini
   main-is: Main.hs
   other-modules:
+      Chat
       Paths_rini
   hs-source-dirs:
       server
